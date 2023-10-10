@@ -1,0 +1,351 @@
+#theme2 {
+  --text: #ffffff;
+  --background: #000000;
+  --primary: #52392e;
+  --secondary: #212727;
+  --accent: #f5f6f9;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  background-color: var(--background);
+  color: var(--text);
+
+}
+
+.main-container {
+  position: relative;
+  top: 105px;
+  padding-bottom: 20px;
+}
+
+.goal-list,
+.reminder-list {
+  position: relative;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--primary);
+  /* border-right: 1px solid var(--primary); */
+  padding-bottom: 10px;
+  /* border-radius: 5px; */
+}
+
+.container-first-goals,
+.container-first-add,
+.container-first,
+.container-second,
+.container-third {
+  margin-left: 20px;
+  margin-right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--accent);
+  /* Set the background color for the main square */
+  padding: 10px;
+  flex-wrap: wrap;
+  /* Allow flex items to wrap */
+  /* border-radius: 20px; */
+}
+
+.container-first-goals {
+  margin-top: 20px;
+}
+
+.container-second {
+  margin-top: 20px;
+}
+
+.container-third {
+  margin-top: 20px;
+}
+
+.section {
+  background-color: var(--secondary);
+  padding: 20px;
+  margin: 10px;
+  box-sizing: border-box;
+  /* Include padding and border in the element's total width */
+  flex: 1;
+  position: relative;
+  /* Add this line to make the parent position relative */
+  /* border-radius: 100px; */
+
+}
+
+.bodyweight,
+.chart {
+  flex-basis: calc(50% - 30px);
+  /* Divide the container width in half and subtract margins */
+  display: flex;
+  flex-direction: column;
+}
+
+.topmost,
+.top,
+.bottom {
+  flex-basis: calc(50% - 30px);
+  /* Divide the container width in half and subtract margins */
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  /* width: 80vh; */
+}
+
+.section-header {
+  font-size: 24px;
+  margin-bottom: 10px;
+  display: inline-flex;
+  position: relative;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  gap: 10px;
+  /* Adjust the gap as needed */
+}
+
+.span {
+  text-decoration: none;
+  background: transparent;
+  border: transparent;
+}
+
+.square-button-goals,
+.square-button-goal-page,
+.square-button-reminders,
+.square-button-workouts,
+.bottom-right-button-log,
+.square-button-new-goals,
+.square-button-delete-goals,
+.square-button-save-new-goals,
+.square-button-delete-goal,
+.square-button-complete-goal,
+.square-button-new-reminders,
+.square-button-save-new-reminders,
+.square-button-delete-reminders,
+.square-button-complete-reminder,
+.square-button-delete-reminder,
+.square-button-bodyWeight,
+.square-button-save-new-bodyWeight,
+.square-button-delete-bodyWeight,
+.square-button-new-bodyWeight,
+.square-button-save-new-goalpage,
+.square-button-add-again {
+  /* background-color: var(--button-color); */
+  /* border: none; Remove the border */
+  /* color: white; Set text color to white for contrast */
+  font-size: 1.2rem;
+  /* Adjust font size as needed */
+  /* padding: 0.2rem 0.5rem; Add padding to the button for spacing */
+  cursor: pointer;
+  /* Add a pointer cursor on hover */
+  /* border-radius: 5px; */
+  text-decoration: none;
+  background: transparent;
+  border: transparent;
+  display: absolute;
+  position: relative;
+  /* gap: 10px; */
+}
+
+.square-button-add-again,
+.square-button-complete-goal,
+.square-button-delete-goal,
+.square-button-complete-reminder,
+.square-button-delete-reminder,
+.square-button-delete-bodyWeight {
+  /* Adjust the positioning of the buttons */
+  /* position: absolute;  */
+  bottom: 0;
+  /* Position at the bottom of their relative container */
+  right: 0;
+  /* Position at the right of their relative container */
+}
+
+.goal-desc,
+.reminder-desc {
+
+  position: relative;
+  /* top: 23px; */
+  /* display: flex; */
+}
+
+.goal-buttons-add,
+.goalpage-buttons,
+.goal-buttons,
+.reminder-buttons {
+  /* background-color: red; */
+  position: absolute;
+  margin-top: -24px;
+  left: 90%;
+  max-width: 70px;
+  min-width: 70px;
+  overflow-x: hidden;
+}
+
+.goalpage-buttons {
+  left: 95%;
+}
+
+.goal-buttons-add {
+  left: 97%;
+}
+
+.reminder-buttons {
+  left: 95%;
+}
+
+.square-button-workouts {
+  left: 62vh;
+  /* Use px for pixels */
+}
+
+.square-button-goals {
+  left: 76vh;
+  /* Use px for pixels */
+}
+
+.square-button-goal-page {
+  left: 164vh;
+}
+
+.square-button-reminders {
+  left: 70vh;
+  /* Use px for pixels */
+}
+
+.square-button-bodyWeight {
+  position: relative;
+  left: 165vh;
+}
+
+.square-button-delete-goals,
+.square-button-delete-reminders {
+  margin-left: 25px;
+  /* Use px for pixels */
+}
+
+/* PART FROM AUTH.CSS STARTS HERE*/
+.newGoalpage,
+.newGoal,
+.newReminder,
+.newBodyweight {
+  display: inline;
+  /* flex-direction: column; */
+  margin-top: 10px;
+  width: 75%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background: transparent;
+  border: transparent;
+  border-bottom: 3px red solid;
+  color: var(--text);
+  outline: none;
+}
+
+.log_weights {
+  display: inline;
+  position: absolute;
+  left: 82%;
+  /* flex-direction: column; */
+  /* margin-top: 10px; */
+  width: 15%;
+  height: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background: transparent;
+  border: transparent;
+  border-bottom: 3px red solid;
+  color: var(--text);
+  outline: none;
+}
+.newGoalpage {
+  width: 500px;
+}
+
+/* AUTH.CSS ENDS HERE*/
+.exercise {
+  margin-bottom: 10px;
+}
+
+/* .log-weight { */
+.weight-logs {
+  /* position: relative; Make the parent position relative */
+  margin-bottom: 15px;
+}
+
+.bottom-right-button-log {
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+}
+
+.goals-reminders {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.goal,
+.reminder {
+  background-color: var(--accent);
+  padding: 20px;
+}
+
+.goal-form {
+  margin: 0;
+  padding: 0;
+}
+
+.icon {
+  margin-left: 5px;
+}
+
+.add-bodyweight {
+  min-height: 250px;
+}
+.update-submit-logweights {
+  padding-top:10px ;
+}
+#newGoalpage,
+#newGoal,
+#newReminder,
+#newBodyweight {
+  display: block;
+}
+
+#chartContainer {
+  /* text-align: center; */
+  margin-bottom: 20px;
+  /* Add margin to separate from other content */
+}
+
+#chartContainer canvas {
+  display: block;
+  margin: 0 auto;
+  /* Center the canvas */
+}
+
+#chartContainer p {
+  /* text-align: center; */
+  margin: 10px 0;
+  /* Add some margin to the message */
+}
+
+.day-today h2 {
+  position: relative;
+  margin-top: -10px;
+  right: 38px;
+}
+
+.day-today li {
+  font-size: 18px;
+  margin-top: 5px;
+  color: var(--primary);
+}

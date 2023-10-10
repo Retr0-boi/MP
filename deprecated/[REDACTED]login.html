@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GRT Login</title>
+  <link rel="stylesheet" type="text/css" href="auth.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="[REDACTED]login.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>LOGIN</h1>
+     <form id="login-form" action="[REDACTED]login.php" method="POST">
+      <input type="text" placeholder="Email" name="email" required>
+      <input type="password" placeholder="Password" name="password" required>
+      <button type="submit" name="login">Login</button>
+      <div id="error-message"></div>
+    </form>
+    <p class="create-account">Don't have an account? <a href="register.html">Create an account</a></p>
+  </div>
+</body>
+</html>

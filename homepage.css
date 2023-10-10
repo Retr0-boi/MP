@@ -1,0 +1,18 @@
+
+
+.content {
+    position: absolute;
+    left: 80px;
+    margin-top: 10%;
+    width: 1000px;
+    color: var(--primary);
+}
+
+.content h2 {
+    font-size: 60px;
+}
+
+.content h1 {
+    font-size: 40px;
+}
+

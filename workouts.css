@@ -1,0 +1,170 @@
+.main-container-workout {
+    position: relative;
+    top: 65px;
+    padding-bottom: 2px;
+}
+
+.container-first,
+.container-second,
+.container-third,
+.container-fourth {
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--accent);
+    /* Set the background color for the main square */
+    padding: 10px;
+    flex-wrap: wrap;
+    /* Allow flex items to wrap */
+    /* border-radius: 20px; */
+    margin-bottom: 20px;
+}
+
+.section {
+    background-color: var(--secondary);
+    padding: 20px;
+    margin: 10px;
+    box-sizing: border-box;
+    /* Include padding and border in the element's total width */
+    flex: 1;
+    position: relative;
+    /* Add this line to make the parent position relative */
+    /* border-radius: 100px; */
+
+}
+
+.day-today h2 {
+    position: relative;
+    margin-top: -10px;
+    right: 38px;
+}
+
+.select-options select,
+.select-options-ex select {
+    position: relative;
+    top: 30px;
+    right: 13vh;
+    width: 300px;
+    background: transparent;
+    color: var(--primary);
+    font-size: 18px;
+    border-radius: 10px;
+    border: 2px solid var(--primary);
+    height: 200px;
+}
+
+.select-options option,
+.select-options-ex option {
+    margin-left: 8px;
+    margin-top: 5px;
+    /* border-bottom:0.5px solid var(--teritiary); */
+}
+
+.select-options-ex select {
+    width: 350px;
+}
+
+.select-options option:first-child,
+.select-options-ex option:first-child {
+
+    color: #948e8e;
+}
+
+.top {
+    flex-basis: calc(50% - 30px);
+    /* Divide the container width in half and subtract margins */
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    /* width: 80vh; */
+}
+
+.workout-heading {
+    font-size: 24px;
+    margin-bottom: 10px;
+    display: flex;
+    position: relative;
+}
+
+.day {
+    margin-top: 15px;
+    display: block;
+    /* min-height: 200px; */
+}
+
+.mg-box,
+.eq-box,
+.ex-box {
+    margin-right: 30px;
+    display: inline-flex;
+}
+
+.eq-label-heading,
+.ex-label-heading,
+.mg-label-heading {
+
+    font-size: 19px;
+    display: block;
+}
+
+.eq-label-heading {
+
+    position: relative;
+    right: 3.5vh;
+}
+
+.ex-label-heading {
+    position: relative;
+    right: 5vh;
+}
+
+.exercise-show,
+.exercise-select {
+    position: relative;
+    top: 120px;
+    right: 13vh;
+}
+
+#muscleGroup,
+#exercises,
+#equipment {
+    width: 250px;
+    height: 200px;
+}
+
+#exercises {
+    width: 350px;
+}
+
+.buttons-main {
+    position: relative;
+    margin-top: 25px;
+}
+
+.buttons {
+    display: inline-flex;
+    margin-right: 20px;
+}
+
+.workout-buttons,
+.exercise-select,
+.exercise-show {
+    background: transparent;
+    border: transparent;
+    /* margin-left: 0px; */
+    font-size: 20px;
+}
+
+.todays-workout li,
+.day-routine li {
+    font-size: 18px;
+    margin-top: 5px;
+    color: var(--primary);
+}
+
+span {
+    font-size: 20px;
+    color: var(--primary);
+}

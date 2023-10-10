@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Homepage</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="navhome.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div id="navigation"></div><br><br><br><br><br>
+
+    <div class="container-first">
+        <div class="section top">
+            <div class="section-header">TODAY'S WORKOUT
+                <button class="square-button-workouts">✏️</button>
+            </div>
+            <div class="exercise">Exercise 1</div>
+            <div class="exercise">Exercise 2</div>
+            <!-- Add more exercises here -->
+        </div>
+        <div class="section top">
+            <div class="section-header">LOG WEIGHTS</div>
+            <!-- Input fields for logging weights -->
+            <div class="weightt">logged weight for exercise 1</div>
+            <div class="weightt">logged weight for exercise 2</div>
+            <button class="bottom-right-button-log">💾</button>
+        </div>
+    </div>
+
+    <div class="container-second">
+        <div class="section bottom">
+            <div class="section-header">GOALS
+                <button class="square-button-goals">✏️</button>
+            </div>
+            <ul>
+                <li>Goal 1</li>
+                <li>Goal 2</li>
+                <!-- Add more goals here -->
+            </ul>
+        </div>
+        <div class="section bottom">
+            <div class="section-header">REMINDERS
+                <button class="square-button-reminders">✏️</button>
+            </div>
+            <ul>
+                <li>Reminder 1</li>
+                <li>Reminder 2</li>
+                <!-- Add more reminders here -->
+            </ul>
+        </div>
+    </div>
+    <div class="container-third">
+        <div class="section">
+            <div class="section-header">Line Chart</div>
+            <canvas id="myLineChart"></canvas>
+
+            <script>
+                // Sample data for the line chart
+                var data = {
+                    labels: ['January', 'February', 'March', 'April', 'May'],
+                    datasets: [{
+                        label: 'Sales',
+                        borderColor: 'rgb(75, 192, 192)',
+                        data: [10, 20, 15, 30, 25],
+                        fill: false
+                    }]
+                };
+
+                var options = {
+                    responsive: false, // Disable responsiveness
+                    maintainAspectRatio: false, // Allow chart to have custom dimensions
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                };
+
+                // Get the canvas element and set its dimensions
+                var canvas = document.getElementById('myLineChart');
+                canvas.width = 800; // Set your desired width
+                canvas.height = 200; // Set your desired height
+
+                // Initialize the chart
+                var myLineChart = new Chart(canvas.getContext('2d'), {
+                    type: 'line',
+                    data: data,
+                    options: options
+                });
+            </script>
+        </div>
+        <div class="section">
+            <div class="section-header">Histogram Chart</div>
+            <canvas id="histogramChart" width="800" height="200"></canvas>
+
+            <script>
+                // Sample data for the histogram chart
+                var histogramData = {
+                    labels: ['0-10', '10-20', '20-30', '30-40', '40-50'],
+                    datasets: [{
+                        label: 'Frequency',
+                        backgroundColor: 'rgba(75, 192, 192, 0.7)',
+                        data: [8, 15, 20, 12, 5]
+                    }]
+                };
+
+                // Initialize the histogram chart
+                var histogramCanvas = document.getElementById('histogramChart');
+                var histogramChart = new Chart(histogramCanvas.getContext('2d'), {
+                    type: 'bar',
+                    data: histogramData,
+                    options: options
+                });
+            </script>
+        </div>
+    </div>
+</body>
+
+</html>
