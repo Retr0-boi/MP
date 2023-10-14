@@ -43,7 +43,14 @@ if(isset($_POST['register'])){
     // Encrypt the password       
 
     // Insert the user data into the database
-    $sql = "INSERT INTO users (username,email,password) VALUES ('$username','$email', '$password')";
+    
+    $check="SELECT * FROM users WHERE email='$email'";
+    $res=$conn->query($check);
+    if($res->num_rows>0){
+      echo"<script>alert('user already exists');</script>";
+    }
+    else{
+    $sql = "INSERT INTO users (username,email,password,date) VALUES ('$username','$email', '$password',CURDATE())";
 
     if ($conn->query($sql) === TRUE) {
         header("Location: login.php");
@@ -51,6 +58,7 @@ if(isset($_POST['register'])){
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
+  }
 }
 $conn->close();
 ?>      
