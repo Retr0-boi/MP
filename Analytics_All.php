@@ -112,10 +112,9 @@
       echo "</div>";
     } else { ?>
       <ul>
-        <li style='list-style-type: none;'>Uh oh we didn't find any logged analytics for <?php echo $d_full; ?></li>
+        <li style='list-style-type: none;'>Uh oh we didn't find any logged analytics on our database</li>
       </ul>
     <?php }
     ?>
   </div>
-
 </div>
