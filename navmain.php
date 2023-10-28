@@ -31,6 +31,7 @@ if (!empty($_SESSION['SUID'])) {
             const scrollPosition = localStorage.getItem("scrollPosition");
             if (scrollPosition !== null) {
                 window.scrollTo(0, parseInt(scrollPosition));
+                console.log("scroll loader worked yay :D");
             }
         });
     </script>
