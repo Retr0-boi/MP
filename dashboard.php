@@ -3,20 +3,6 @@
 <head>
   <title>Homepage</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script>
-        // Store the scroll position before reloading the page
-        window.addEventListener("beforeunload", function() {
-            localStorage.setItem("scrollPosition", window.scrollY);
-        });
-
-        // Restore the scroll position after the page reloads
-        window.addEventListener("load", function() {
-            const scrollPosition = localStorage.getItem("scrollPosition");
-            if (scrollPosition !== null) {
-                window.scrollTo(0, parseInt(scrollPosition));
-            }
-        });
-    </script>
 </head>
 
 <body>

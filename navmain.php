@@ -20,6 +20,20 @@ if (!empty($_SESSION['SUID'])) {
 <link rel="stylesheet" href="nav.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <link rel="stylesheet" href="dashboard.css">
+<script>
+        // Store the scroll position before reloading the page
+        window.addEventListener("beforeunload", function() {
+            localStorage.setItem("scrollPosition", window.scrollY);
+        });
+
+        // Restore the scroll position after the page reloads
+        window.addEventListener("load", function() {
+            const scrollPosition = localStorage.getItem("scrollPosition");
+            if (scrollPosition !== null) {
+                window.scrollTo(0, parseInt(scrollPosition));
+            }
+        });
+    </script>
 <nav>
   <div class="logo">
     <a href="homepage.php">Gym Routine Tracker</a>
