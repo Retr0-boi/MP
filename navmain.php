@@ -49,7 +49,7 @@ if (!empty($_SESSION['SUID'])) {
       <a href="logout.php" name="nav_logout"><i class="fa-solid fa-right-from-bracket" id="nav-icon-logout"></i>Logout</a>
     <?php
     } else { ?>
-      <a href="#" name="nav_demo"><i class="fa-solid fa-magnifying-glass" id="nav-icon-demo"></i>Demo</a>
+      <a href="demo.php" name="nav_demo"><i class="fa-solid fa-magnifying-glass" id="nav-icon-demo"></i>Demo</a>
       <!-- <a href="#" name="nav_about"><i class="fa-solid fa-circle-info" id="nav-icon-info"></i>About</a> -->
       <a href="login.php" name="nav_login"><i class="fa-solid fa-right-to-bracket" id="nav-icon-login"></i>Login</a>
       <a href="register.php" name="nav_signup"><i class="fa-solid fa-user-plus" id="nav-icon-signup"></i>Sign Up</a>
