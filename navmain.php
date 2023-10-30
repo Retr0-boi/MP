@@ -20,6 +20,7 @@ if (!empty($_SESSION['SUID'])) {
 <link rel="stylesheet" href="nav.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <link rel="stylesheet" href="dashboard.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <script>
         // Store the scroll position before reloading the page
         window.addEventListener("beforeunload", function() {

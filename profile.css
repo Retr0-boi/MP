@@ -3,7 +3,8 @@
     top: 105px;
     padding-bottom: 2px;
 }
-.container-profile{
+
+.container-profile {
     margin-left: 20px;
     margin-right: 20px;
     display: flex;
@@ -16,4 +17,46 @@
     /* Allow flex items to wrap */
     /* border-radius: 20px; */
     margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.profile_table {
+    position: relative;
+    /* left: 20px; */
+    max-width: 500px;
+    font-weight: normal;
+    text-align: left;
+}
+
+.profile_table tr {
+    display: block;
+    padding-top: 5px;
+}
+
+.profile-container th,
+td {
+    min-width: 105px;
+}
+
+.delete_button {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: #cc0000;
+    font-weight: bold;
+}
+
+.confirmation {
+    display: inline;
+    /* flex-direction: column; */
+    margin-top: 10px;
+    width: 10%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background: transparent;
+    border: transparent;
+    border-bottom: 3px red solid;
+    color: var(--text);
+    outline: none;
 }
