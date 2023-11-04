@@ -105,6 +105,14 @@
                             $del_data_qry_logged_weights="DELETE * FROM logged_weights WHERE uid='$SID'";
                             $del_data_qry_goals="DELETE * FROM goals WHERE uid='$SID'";
                             $del_data_bodyweight="DELETE * FROM bodyweight WHERE uid='$SID'";
+                            if( $conn->query($del_data_bodyweight)&&
+                                $conn->query($del_data_qry_goals)&&
+                                $conn->query($del_data_qry_logged_weights)&&
+                                $conn->query($del_data_qry_previous_goals)&&
+                                $conn->query($del_data_qry_reminders)&&
+                                $conn->query($del_data_qry_workouts)){
+                                    echo "<script>alert('Data deleted successfully');</script>";
+                                }
                         }
                         ?>
                      </div>
@@ -114,8 +122,6 @@
             </div>
         </div>
     </div>
-
-
 
     <script>
         function confirmDeleteData() {

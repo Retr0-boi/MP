@@ -62,6 +62,9 @@ if (!empty($_SESSION['SUID'])) {
       <?php if ($page != 'profile.php') : ?>
         <a href="profile.php" name="nav_profile"><i class="fa-solid fa-user" id="nav-icon-profile"></i>Profile</a>
       <?php endif ?>
+      <?php if ($page == 'homepage.php') : ?>
+        <a href="contact_us.php" name="nav_contact"><i class="fa-solid fa-comments" id="nav-icon-contact"></i>Contact Us</a>
+      <?php endif ?>
       <a href="logout.php" name="nav_logout"><i class="fa-solid fa-right-from-bracket" id="nav-icon-logout"></i>Logout</a>
     <?php
     } else { ?>
@@ -87,6 +90,7 @@ if (!empty($_SESSION['SUID'])) {
       logout: document.getElementById('nav-icon-logout'),
       analytics: document.getElementById('nav-icon-analytics'),
       demo: document.getElementById('nav-icon-demo'),
+      contact: document.getElementById('nav-icon-contact'),
     };
   });
   // Get all the .topnav a elements by name
@@ -101,6 +105,7 @@ if (!empty($_SESSION['SUID'])) {
     nav_logout: document.querySelector('[name="nav_logout"]'),
     nav_analytics: document.querySelector('[name="nav_analytics"]'),
     nav_demo: document.querySelector('[name="nav_demo"]'),
+    nav_contact: document.querySelector('[name="nav_contact"]'),
   };
 
   // Common hover event listener
@@ -128,6 +133,7 @@ if (!empty($_SESSION['SUID'])) {
   handleHover('nav_goals', 'goals');
   handleHover('nav_profile', 'profile');
   handleHover('nav_logout', 'logout');
-  handleHover('nav_analytics', 'analytics')
+  handleHover('nav_analytics', 'analytics');
   handleHover('nav_demo', 'demo');
+  handleHover('nav_contact', 'contact');
 </script>

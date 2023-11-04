@@ -96,7 +96,10 @@ a {
 #nav-icon-profile,
 #nav-icon-logout,
 #nav-icon-analytics,
-#nav-icon-demo
+#nav-icon-demo,
+#nav-icon-contact,
+#nav-icon-enq,
+#nav-icon-add
 {
     margin-right: 10px;
     /* color: var(--text); */
