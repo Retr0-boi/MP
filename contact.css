@@ -1,0 +1,22 @@
+body{
+    background:linear-gradient(150deg, var(--background), rgb(14, 26, 65)); 
+}
+.contact-us,
+.content,
+.submit-message{
+    background-color: var(--text);
+    border-radius:10px ;
+    width: 50%;
+    height: 50px;
+    font-size: 20px;
+    color: var(--background);
+    border-color: var(--teritiary);
+}
+.content {
+    width: 75%;
+    height: 250px;
+}
+.submit-message {
+    color: var(--selected);
+    padding-bottom: 10px;
+}

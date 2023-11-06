@@ -4,6 +4,7 @@
     <title>enquiries</title>
     <link rel="stylesheet" href="homepage.css">
     <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="enquiry.css">
 </head>
 
 <body>
@@ -19,27 +20,56 @@
                         <i class="fa-solid fa-calendar-day" style="color: #25a825;"></i>
                     </div>
                 </div>
-                <ul>
-                    <li>KUNDI </li>
-                    <li>KUNDI </li>
-                    <li>KUNDI </li>
-                    <li>KUNDI </li>
-                </ul>
+                <form method="post">
+                <?php
+                $qry = "SELECT * FROM enquiries ORDER BY date DESC";
+                $result = $conn->query($qry);
+                if ($result->num_rows > 0) {
+                    $noenq=0;
+                    while ($row = $result->fetch_assoc()) {
+                        $sub = $row['subject'];
+                        $enq_id=$row['enq_id'];
+                        $date=$row['date'];
+                ?>
+                        <li><?php echo $date; ?></li><br>
+                        <button class='enqs'type="submit" name="show" value="<?php echo $enq_id ?>">
+                            <?php echo $sub; ?>
+                        </button>
+                <?php
+                    }
+                } else {
+                    echo "you dont have no enquiries at the moment";
+                    $noenq=1;
+                } ?>
+                </form>
             </div>
             <div class="section bottom enquiries-right">
-                <div class="section-header">ENDI
-                    <div class="icon">
+                
+                <?php
+                if (isset($_POST['show']) && $noenq==0) {
+                    $content_id = $_POST['show'];
+                    $art = "SELECT * FROM enquiries where enq_id='$content_id'";
+                    $resart = $conn->query($art);
+                    $row = $resart->fetch_assoc();
+                    $subject = $row['subject'];
+                    $content = $row['content'];
+                ?>
+                <div class="section-header">SUBJECT<br><br><?php echo $subject; ?>
+                    <!-- <div class="icon">
                         <i class="fa-solid fa-calendar-day" style="color: #25a825;"></i>
-                    </div>
+                        <span class="material-symbols-outlined"style="font-size:30px; position:relative;top:4px;color: #25a825;">title</span>
+                    </div> -->
                 </div>
-                <ul>
-                    <li>endi </li>
-                    <li>endi </li>
-                    <li>endi </li>
-                    <li>endi </li>
-                </ul>
+                <br><br>
+                    <p><?php echo $content; ?></p>
+                <?php } elseif($noenq==1){
+                    echo "<h2>you dont have any enquiries</h2>";
+                }else {
+                    echo "<h2>select an enquiry</h2>";
+                }
+                ?>
             </div>
-            
+
         </div>
 
     </div>
