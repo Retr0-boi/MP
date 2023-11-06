@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 06, 2023 at 08:16 PM
+-- Generation Time: Nov 06, 2023 at 09:36 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -81,6 +81,20 @@ INSERT INTO `days` (`d_id`, `day`, `d_full`) VALUES
 (5, 'Fri', 'Friday'),
 (6, 'Sat', 'Saturday'),
 (7, 'Sun', 'Sunday');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `enquiries`
+--
+
+CREATE TABLE `enquiries` (
+  `enq_id` int(11) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `subject` varchar(100) NOT NULL,
+  `content` varchar(500) NOT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -517,6 +531,12 @@ ALTER TABLE `days`
   ADD PRIMARY KEY (`d_id`);
 
 --
+-- Indexes for table `enquiries`
+--
+ALTER TABLE `enquiries`
+  ADD PRIMARY KEY (`enq_id`);
+
+--
 -- Indexes for table `equipment`
 --
 ALTER TABLE `equipment`
@@ -595,6 +615,12 @@ ALTER TABLE `bodyweight`
 --
 ALTER TABLE `days`
   MODIFY `d_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `enquiries`
+--
+ALTER TABLE `enquiries`
+  MODIFY `enq_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `exercises`
