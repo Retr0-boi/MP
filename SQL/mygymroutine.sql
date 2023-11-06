@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 10, 2023 at 09:16 PM
+-- Generation Time: Nov 06, 2023 at 08:16 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -50,7 +50,12 @@ INSERT INTO `bodyweight` (`w_id`, `uid`, `weight`, `date`) VALUES
 (9, 2, 80, '2023-09-23'),
 (10, 2, 45, '2023-09-28'),
 (11, 2, 50, '2023-09-30'),
-(12, 2, 26, '2023-10-05');
+(12, 2, 26, '2023-10-05'),
+(13, 69, 20, '2023-10-28'),
+(14, 69, 21, '2023-10-28'),
+(15, 69, 23, '2023-10-28'),
+(16, 69, 18, '2023-10-28'),
+(17, 69, 40, '2023-11-06');
 
 -- --------------------------------------------------------
 
@@ -239,9 +244,10 @@ CREATE TABLE `goals` (
 --
 
 INSERT INTO `goals` (`goal_id`, `UID`, `goal_description`) VALUES
-(30, 2, 'sskjdnsjdssadjkna'),
-(28, 2, '5tg5ttgrtgrt'),
-(29, 2, 'dfsdfsds');
+(33, 2, 'Gain 5 KG before december'),
+(31, 69, 'Lose 5kg in a month'),
+(32, 69, 'increase my bench 1rep max'),
+(34, 2, 'increase bench press 1rep max');
 
 -- --------------------------------------------------------
 
@@ -303,7 +309,26 @@ INSERT INTO `logged_weights` (`weight_id`, `UID`, `ex_id`, `weight`, `date`) VAL
 (39, 2, 20, 12, '2023-10-11'),
 (40, 2, 21, 33, '2023-10-11'),
 (41, 2, 22, 55, '2023-10-11'),
-(42, 2, 23, 43, '2023-10-11');
+(42, 2, 23, 43, '2023-10-11'),
+(43, 2, 15, 20, '2023-11-04'),
+(44, 2, 16, 25, '2023-11-04'),
+(45, 2, 18, 15, '2023-11-04'),
+(46, 2, 24, 30, '2023-11-04'),
+(47, 2, 25, 40, '2023-11-04'),
+(48, 2, 26, 45, '2023-11-04'),
+(49, 2, 27, 45, '2023-11-04'),
+(50, 2, 1, 20, '2023-11-04'),
+(51, 2, 2, 18, '2023-11-04'),
+(52, 2, 3, 15, '2023-11-04'),
+(53, 2, 4, 15, '2023-11-04'),
+(54, 2, 34, 0, '2023-11-06'),
+(55, 2, 35, 0, '2023-11-06'),
+(56, 2, 36, 0, '2023-11-06'),
+(57, 2, 37, 20, '2023-11-06'),
+(58, 2, 1, 25, '2023-11-06'),
+(59, 2, 2, 30, '2023-11-06'),
+(60, 2, 4, 25, '2023-11-06'),
+(61, 2, 5, 0, '2023-11-06');
 
 -- --------------------------------------------------------
 
@@ -351,22 +376,9 @@ CREATE TABLE `previous_goals` (
 --
 
 INSERT INTO `previous_goals` (`pg_id`, `g_id`, `uid`, `goal_desc`, `date`, `completed`) VALUES
-(6, 4, 2, 'AAAAAAAAAAAAAAAAAA', '2023-09-03', 1),
-(10, 13, 2, 'asdsdvsd', '2023-09-05', 1),
-(11, 10, 2, 'djfsdnfsjdnkj', '2023-09-07', 0),
-(12, 11, 2, 'BBBBBBBBBBBB', '2023-09-07', 1),
-(13, 14, 2, 'huefshkbdkhfsbkdhf', '2023-09-09', 0),
-(14, 16, 2, 'x sc s ', '2023-09-09', 1),
-(15, 15, 2, 'EEEEEEEEEEEEEEEEE', '2023-09-23', 1),
-(16, 22, 2, 'eeeeeeeeeeeeeeeeeeeeeeee', '2023-09-23', 0),
-(18, 20, 2, 'dffsdfsdfsd', '2023-09-23', 0),
-(19, 17, 2, 'sddsgfsf', '2023-09-23', 0),
-(20, 23, 2, 'DDDDDDDDDDDDDD', '2023-09-30', 0),
-(21, 24, 2, ' c c', '2023-09-30', 0),
-(23, 18, 2, '1231231', '2023-10-05', 1),
-(24, 27, 2, 'CCCCCCCCCCC', '2023-10-05', 1),
-(25, 19, 2, 'sdfsds', '2023-10-05', 0),
-(26, 26, 2, 'tgrtg', '2023-10-05', 0);
+(30, 35, 2, 'TEST GOAL 1', '2023-11-06', 0),
+(31, 36, 2, 'TEST GOAL 2', '2023-11-06', 0),
+(32, 37, 2, 'TEST GOAL 3', '2023-11-06', 1);
 
 -- --------------------------------------------------------
 
@@ -385,9 +397,10 @@ CREATE TABLE `reminders` (
 --
 
 INSERT INTO `reminders` (`reminder_id`, `UID`, `reminder_text`) VALUES
-(8, 2, '123123123123132123'),
-(9, 2, 'FFFFFFFFF'),
-(11, 2, 'swsws');
+(17, 2, 'Protein intake reminder'),
+(18, 2, 'have to buy gym gloves'),
+(13, 69, 'test 1'),
+(14, 69, 'test 2');
 
 -- --------------------------------------------------------
 
@@ -399,16 +412,19 @@ CREATE TABLE `users` (
   `UID` int(11) NOT NULL,
   `username` varchar(25) NOT NULL,
   `email` varchar(70) NOT NULL,
-  `password` varchar(50) NOT NULL
+  `password` varchar(50) NOT NULL,
+  `date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`UID`, `username`, `email`, `password`) VALUES
-(1, 'Ned', 'assassinsanu@gmail.com', '12345'),
-(2, 'aaa', 'nevinjames420@gmail.com', '12345');
+INSERT INTO `users` (`UID`, `username`, `email`, `password`, `date`) VALUES
+(1, 'Ned', 'assassinsanu@gmail.com', '12345', '2023-10-14'),
+(2, 'Nevin', 'nevinjames420@gmail.com', '12345', '2023-10-14'),
+(3, 'nenddo', 'nenddo@gmail.com', '123', '2023-10-14'),
+(69, 'DEMO', 'demodemo@gmail.com', 'demo', '2001-01-01');
 
 -- --------------------------------------------------------
 
@@ -460,7 +476,28 @@ INSERT INTO `workouts` (`w_id`, `uid`, `ex_id`, `day`, `date`, `Used`) VALUES
 (71, 2, 2, 7, '2023-10-05', 1),
 (72, 2, 3, 7, '2023-10-05', 1),
 (73, 2, 4, 7, '2023-10-05', 1),
-(74, 2, 5, 7, '2023-10-05', 1);
+(74, 2, 5, 7, '2023-10-05', 1),
+(80, 69, 19, 2, '2023-10-28', 1),
+(81, 69, 20, 2, '2023-10-28', 1),
+(85, 69, 81, 4, '2023-10-28', 1),
+(86, 69, 85, 4, '2023-10-28', 1),
+(87, 69, 86, 4, '2023-10-28', 1),
+(88, 69, 87, 4, '2023-10-28', 1),
+(89, 69, 88, 4, '2023-10-28', 1),
+(90, 69, 89, 4, '2023-10-28', 1),
+(91, 69, 49, 2, '2023-10-28', 1),
+(99, 2, 1, 5, '2023-11-04', 1),
+(100, 2, 2, 5, '2023-11-04', 1),
+(101, 2, 3, 5, '2023-11-04', 1),
+(102, 2, 4, 5, '2023-11-04', 1),
+(103, 2, 1, 6, '2023-11-04', 1),
+(104, 2, 2, 6, '2023-11-04', 1),
+(105, 2, 3, 6, '2023-11-04', 1),
+(106, 2, 4, 6, '2023-11-04', 1),
+(107, 2, 1, 1, '2023-11-06', 1),
+(108, 2, 2, 1, '2023-11-06', 1),
+(109, 2, 4, 1, '2023-11-06', 1),
+(110, 2, 5, 1, '2023-11-06', 1);
 
 --
 -- Indexes for dumped tables
@@ -551,7 +588,7 @@ ALTER TABLE `workouts`
 -- AUTO_INCREMENT for table `bodyweight`
 --
 ALTER TABLE `bodyweight`
-  MODIFY `w_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `w_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `days`
@@ -569,37 +606,37 @@ ALTER TABLE `exercises`
 -- AUTO_INCREMENT for table `goals`
 --
 ALTER TABLE `goals`
-  MODIFY `goal_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `goal_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `logged_weights`
 --
 ALTER TABLE `logged_weights`
-  MODIFY `weight_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `weight_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `previous_goals`
 --
 ALTER TABLE `previous_goals`
-  MODIFY `pg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `pg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `reminders`
 --
 ALTER TABLE `reminders`
-  MODIFY `reminder_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `reminder_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `UID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `UID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT for table `workouts`
 --
 ALTER TABLE `workouts`
-  MODIFY `w_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `w_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
 
 --
 -- Constraints for dumped tables

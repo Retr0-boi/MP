@@ -29,6 +29,7 @@ if (isset($_POST['login'])) {
     $row = $result->fetch_assoc();
     //UNHASHED
     if ($password == $row['password']) {
+      $_SESSION['name'] = $row['username'];
       $_SESSION['SUID'] = $row['UID'];
 
       header("Location: dashboard.php");

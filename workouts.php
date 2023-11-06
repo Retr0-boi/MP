@@ -300,7 +300,7 @@ $daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday
                         <i class="fa-solid fa-sliders" style="color: #25a825;"></i>
                     </div>
                 </div>
-
+                <span>Under construction!</span>
             </div>
         </div>
     </div>

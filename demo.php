@@ -10,6 +10,8 @@ if ($conn->connect_error) {
 }
 session_start();
 $_SESSION['SUID'] = 69;
+$_SESSION['name'] = "DEMO USER";
+
 header("Location: dashboard.php");
 exit;
 ?>

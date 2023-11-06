@@ -12,7 +12,10 @@
         </div> 
         <div class="main-container">
         <div class="content">
-            <h2>WELCOME,</h2>
+            <h2>WELCOME, 
+                <?php if(isset($_SESSION['name']))
+                        {echo $_SESSION['name'];}?>
+            </h2>
             <h1>To Gym Routine Tracker</h1>
         </div>
     </div>

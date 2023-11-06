@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Homepage</title>
+    <title>Contact Us</title>
     <link rel="stylesheet" href="homepage.css">
     <link rel="stylesheet" href="dashboard.css">
 </head>
