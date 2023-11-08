@@ -117,34 +117,33 @@ if ($conn) {
                     </div>
                 </div>
                 <?php
-                if(isset($_POST['add-equipment'])){
-                    $eq_name_eqadd=$_POST['chosen-equipment-eqadd'];
-                    $eq_count=$eq_count+1;
-                    $query_add_eq="INSERT INTO equipment (eq_id,eq_name) VALUES('$eq_count','$eq_name_eqadd')";
+                if (isset($_POST['add-equipment'])) {
+                    $eq_name_eqadd = $_POST['chosen-equipment-eqadd'];
+                    $eq_count = $eq_count + 1;
+                    $query_add_eq = "INSERT INTO equipment (eq_id,eq_name) VALUES('$eq_count','$eq_name_eqadd')";
                     if (!$conn->query($query_add_eq)) {
                         echo $conn->error;
                     } else {
                         echo "<script>alert('$eq_name_eqadd inserted successfully');</script>";
                         echo "<script>window.location.href='adminAddExercises.php';</script>";
-
                     }
                 }
                 ?>
                 <form method="post">
-                <div class="options-outer">
-                    <div class="options-inner">
-                        <div class="button-container">
-                            <div class="newGoalpageButton">
-                                <input type="text" class="Add-page" placeholder="Equipment Name" name="chosen-equipment-eqadd" required>
-                            </div>
-                            <div class="submitButton">
-                                <button class="square-button-save-new-goalpage" type="submit" name="add-equipment">
-                                    <i class="fa-regular fa-floppy-disk" style="color: #25a825;font-size:25px;"></i>
-                                </button>
+                    <div class="options-outer">
+                        <div class="options-inner">
+                            <div class="button-container">
+                                <div class="newGoalpageButton">
+                                    <input type="text" class="Add-page" placeholder="Equipment Name" name="chosen-equipment-eqadd" required>
+                                </div>
+                                <div class="submitButton">
+                                    <button class="square-button-save-new-goalpage" type="submit" name="add-equipment">
+                                        <i class="fa-regular fa-floppy-disk" style="color: #25a825;font-size:25px;"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 </form>
             </div>
         </div>
@@ -157,10 +156,10 @@ if ($conn) {
                     </div>
                 </div>
                 <?php
-                if(isset($_POST['add-mooscle'])){
-                    $mg_name_eqadd=$_POST['chosen-mooscle'];
-                    $mg_count=$mg_count+1;
-                    $query_add_mg="INSERT INTO musclegroup (mg_id,mg_name) VALUES('$mg_count','$mg_name_eqadd')";
+                if (isset($_POST['add-mooscle'])) {
+                    $mg_name_eqadd = $_POST['chosen-mooscle'];
+                    $mg_count = $mg_count + 1;
+                    $query_add_mg = "INSERT INTO musclegroup (mg_id,mg_name) VALUES('$mg_count','$mg_name_eqadd')";
                     if (!$conn->query($query_add_mg)) {
                         echo $conn->error;
                     } else {
@@ -170,22 +169,23 @@ if ($conn) {
                 }
                 ?>
                 <form method="post">
-                <div class="options-outer">
-                    <div class="options-inner">
-                        <div class="button-container">
-                            <div class="newGoalpageButton">
-                                <input type="text" class="Add-page" placeholder="Muscle Group Name" name="chosen-mooscle" required>
-                            </div>
-                            <div class="submitButton">
-                                <button class="square-button-save-new-goalpage" type="submit" name="add-mooscle">
-                                    <i class="fa-regular fa-floppy-disk" style="color: #25a825;font-size:25px;"></i>
-                                </button>
+                    <div class="options-outer">
+                        <div class="options-inner">
+                            <div class="button-container">
+                                <div class="newGoalpageButton">
+                                    <input type="text" class="Add-page" placeholder="Muscle Group Name" name="chosen-mooscle" required>
+                                </div>
+                                <div class="submitButton">
+                                    <button class="square-button-save-new-goalpage" type="submit" name="add-mooscle">
+                                        <i class="fa-regular fa-floppy-disk" style="color: #25a825;font-size:25px;"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 </form>
             </div>
         </div>
+
     </div>
 </body>
