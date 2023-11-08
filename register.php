@@ -29,36 +29,38 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 session_start();
+
 if (!empty($_SESSION['SUID'])) {
-  $SID = $_SESSION['SUID'];
-  header('location:homepage.php');
-} 
-if(isset($_POST['register'])){
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    // Perform additional validation and sanitization of user inputs here
-
-    // Encrypt the password       
-
-    // Insert the user data into the database
-    
-    $check="SELECT * FROM users WHERE email='$email'";
-    $res=$conn->query($check);
-    if($res->num_rows>0){
-      echo"<script>alert('user already exists');</script>";
-    }
-    else{
-    $sql = "INSERT INTO users (username,email,password,date) VALUES ('$username','$email', '$password',CURDATE())";
-
-    if ($conn->query($sql) === TRUE) {
-        header("Location: login.php");
-        exit();
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-  }
+    $SID = $_SESSION['SUID'];
+    header('location:homepage.php');
 }
+
+if(isset($_POST['register'])){
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $password = md5($_POST['password']); // Use md5 hashing for the password
+
+    // You should perform additional validation and sanitization of user inputs here
+    // Ensure that $username, $email, and $password are safe to use in SQL queries
+
+    // Check if the user with the same email already exists
+    $check = "SELECT * FROM users WHERE email='$email'";
+    $res = $conn->query($check);
+    
+    if($res->num_rows > 0){
+        echo "<script>alert('User already exists');</script>";
+    } else {
+        // Insert the user data into the database
+        $sql = "INSERT INTO users (username, email, password, date) VALUES ('$username', '$email', '$password', CURDATE())";
+        
+        if ($conn->query($sql) === TRUE) {
+            header("Location: login.php");
+            exit();
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+    }
+}
+
 $conn->close();
-?>      
+?>

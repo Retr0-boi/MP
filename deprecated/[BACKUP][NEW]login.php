@@ -15,22 +15,19 @@ if (!empty($_SESSION['SUID'])) {
   $SID = $_SESSION['SUID'];
   header('location:homepage.php');
 }
-
 if (isset($_POST['login'])) {
-  $email = mysqli_real_escape_string($conn, $_POST['email']);
-  $password = md5($_POST['password']); // Use md5 hashing for the password
-
-  if ($email == "admin@gmail.com" && $password == md5("admin")) {
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+  if($email=="admin@gmail.com" && $password== "admin") {
     // header('Location:admin.php');
-    echo "<script>window.location.href='admin.php'</script>";
+    echo"<script>window.location.href='admin.php'</script>";
     exit;
   }
-
   $sql = "SELECT * FROM users WHERE email = '$email'";
   $result = $conn->query($sql);
   if ($result->num_rows == 1) {
     $row = $result->fetch_assoc();
-    // Check hashed password
+    //UNHASHED
     if ($password == $row['password']) {
       $_SESSION['name'] = $row['username'];
       $_SESSION['SUID'] = $row['UID'];
