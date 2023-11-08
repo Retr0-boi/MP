@@ -38,7 +38,7 @@
                 <?php
                     }
                 } else {
-                    echo "you dont have no enquiries at the moment";
+                    echo "uh oh looks like this is empty...";
                     $noenq=1;
                 } ?>
                 </form>
@@ -63,7 +63,7 @@
                 <br><br>
                     <p><?php echo $content; ?></p>
                 <?php } elseif($noenq==1){
-                    echo "<h2>you dont have any enquiries</h2>";
+                    echo "<h2>you do not have any enquiries at the moment</h2>";
                 }else {
                     echo "<h2>select an enquiry</h2>";
                 }
