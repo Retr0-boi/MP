@@ -1,0 +1,32 @@
+.options-outer{
+    display: inline-flex;
+}
+.options-inner{
+    display:flex ;
+    padding-inline: 20px;
+}
+/* .button-workouts{
+    margin-top: 20px;
+    padding-inline: 20px;
+} */
+
+
+.Add-page{
+    display: inline;
+    /* flex-direction: column; */
+    margin-top: 10px;
+    /* width: 75%; */
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background: transparent;
+    border: transparent;
+    border-bottom: 3px red solid;
+    color: var(--text);
+    outline: none;
+    width: 300px;
+  }
+  .Add-page option{
+    font-size: 15px;
+    color: var(--accent);
+  }

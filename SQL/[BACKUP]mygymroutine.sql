@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 08, 2023 at 03:49 PM
+-- Generation Time: Nov 08, 2023 at 04:05 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -118,26 +118,7 @@ INSERT INTO `equipment` (`eq_id`, `eq_name`) VALUES
 (4, 'Bodyweight'),
 (5, 'Kettlebell');
 
--- -------------
-CREATE TABLE `musclegroup` (
-  `mg_id` int(11) NOT NULL,
-  `mg_name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `musclegroup`
---
-
-INSERT INTO `musclegroup` (`mg_id`, `mg_name`) VALUES
-(1, 'Chest'),
-(2, 'Back'),
-(3, 'Legs'),
-(4, 'Triceps'),
-(5, 'Biceps'),
-(6, 'Shoulders'),
-(7, 'Abs'),
-(8, 'Calves'),
-(9, 'Forearms');-------------------------------------------
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `exercises`
@@ -258,7 +239,8 @@ INSERT INTO `exercises` (`ex_id`, `mg_id`, `eq_id`, `ex_name`) VALUES
 (101, 9, 2, 'Dumbbell Wrist Curls'),
 (102, 9, 2, 'Reverse Dumbbell Wrist Curls'),
 (103, 9, 4, 'Reverse Push-Ups'),
-(104, 9, 4, 'Finger Push-Ups');
+(104, 9, 4, 'Finger Push-Ups'),
+(129, 3, 4, 'TEST');
 
 -- --------------------------------------------------------
 
@@ -369,6 +351,25 @@ INSERT INTO `logged_weights` (`weight_id`, `UID`, `ex_id`, `weight`, `date`) VAL
 -- Table structure for table `musclegroup`
 --
 
+CREATE TABLE `musclegroup` (
+  `mg_id` int(11) NOT NULL,
+  `mg_name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `musclegroup`
+--
+
+INSERT INTO `musclegroup` (`mg_id`, `mg_name`) VALUES
+(1, 'Chest'),
+(2, 'Back'),
+(3, 'Legs'),
+(4, 'Triceps'),
+(5, 'Biceps'),
+(6, 'Shoulders'),
+(7, 'Abs'),
+(8, 'Calves'),
+(9, 'Forearms');
 
 -- --------------------------------------------------------
 
@@ -613,7 +614,7 @@ ALTER TABLE `enquiries`
 -- AUTO_INCREMENT for table `exercises`
 --
 ALTER TABLE `exercises`
-  MODIFY `ex_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
+  MODIFY `ex_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
 
 --
 -- AUTO_INCREMENT for table `goals`
