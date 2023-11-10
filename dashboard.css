@@ -271,7 +271,23 @@ body {
   color: var(--text);
   outline: none;
 }
-
+.freqReminder{
+  display: inline;
+  /* flex-direction: column; */
+  margin-top: 10px;
+  padding: 10px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background: transparent;
+  border: transparent;
+  border-bottom: 3px red solid;
+  color: var(--text);
+  outline: none;
+}
+.freqOpt{
+  color: var(--secondary);
+}
 .log_weights {
   display: inline;
   position: absolute;

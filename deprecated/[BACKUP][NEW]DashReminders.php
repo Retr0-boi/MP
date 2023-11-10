@@ -61,9 +61,9 @@ if (isset($_POST['reminder-edit'])) {
     if (isset($_POST['delete_reminders'])) {
       $goal_id = $_POST['ip_reminder_id']; // Get the goal_id from the hidden input
       $sql_delete = "DELETE FROM reminders WHERE reminder_id = '$reminder_id'";
-      if (!$conn->query($sql_delete) === TRUE) {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-      }
+        if (!$conn->query($sql_delete) === TRUE) {
+          echo "Error: " . $sql . "<br>" . $conn->error;
+        }
       echo '<script>window.location.href = "dashboard.php";</script>';
     }
 
@@ -86,37 +86,20 @@ if (isset($_POST['reminder-edit'])) {
         </div>
       </div>
     </form>
-</div>
+
 
     <script>
       function addNewReminder() {
-        // Create a new div to contain the text box, dropdown, delete button, and "Add reminder" button
+        // Create a new div to contain the text box, delete button, and "Add reminder" button
         var reminderDiv = document.createElement("div");
 
         // Create new input field
-        var newInputReminders = document.createElement("input");
-        newInputReminders.type = "text";
-        newInputReminders.name = "newReminder[]";
-        newInputReminders.className = "newReminder";
-        newInputReminders.placeholder = "Enter a new reminder";
-        newInputReminders.required = true;
-
-        // Create dropdown for reminder frequency
-        var frequencyDropdown = document.createElement("select");
-        frequencyDropdown.name = "reminderFrequency[]";
-        frequencyDropdown.className = "freqReminder";
-        frequencyDropdown.required = true;
-        // Options for the frequency dropdown
-        var frequencyOptions = ["Daily", "Weekly", "Monthly"];
-        var frequencyValues = ["daily", "weekly", "monthly"];
-
-        for (var i = 0; i < frequencyOptions.length; i++) {
-          var option = document.createElement("option");
-          option.className = 'freqOpt';
-          option.value = frequencyValues[i];
-          option.text = frequencyOptions[i];
-          frequencyDropdown.appendChild(option);
-        }
+        var newInputRemindes = document.createElement("input");
+        newInputRemindes.type = "text";
+        newInputRemindes.name = "newReminder[]";
+        newInputRemindes.className = "newReminder";
+        newInputRemindes.placeholder = "Enter a new reminder";
+        newInputRemindes.required = true;
 
         // Create a delete button for the text box
         var deleteButton = document.createElement("button");
@@ -133,8 +116,7 @@ if (isset($_POST['reminder-edit'])) {
         };
 
         // Append the new elements to the div
-        reminderDiv.appendChild(newInputReminders);
-        reminderDiv.appendChild(frequencyDropdown);
+        reminderDiv.appendChild(newInputRemindes);
         reminderDiv.appendChild(deleteButton);
 
         // Append the div to the form
@@ -144,7 +126,6 @@ if (isset($_POST['reminder-edit'])) {
         // Show the "Add reminder" button when a form is added
         checkSaveButtonVisibilityReminders();
       }
-
 
       function checkSaveButtonVisibilityReminders() {
         // Show the "Save Reminders" button when there's at least one form
@@ -162,17 +143,14 @@ if (isset($_POST['reminder-edit'])) {
   <?php
   if (isset($_POST['add_reminder'])) {
     $reminders = $_POST['newReminder'];
-    $frequencies = $_POST['reminderFrequency'];
 
-    for ($i = 0; $i < count($reminders); $i++) {
-      $reminder = $reminders[$i];
-      $frequency = $frequencies[$i];
+    foreach ($reminders as $reminder) {
+      $sql = "INSERT INTO reminders (reminder_text, UID) VALUES ('$reminder', '$SID')"; // Replace $SID with your user ID
 
-      $sql = "INSERT INTO reminders (reminder_text, frequency, UID) VALUES ('$reminder', '$frequency', '$SID')";
-
-      if (!$conn->query($sql) === TRUE) {
+      if (!$conn->query($sql) === TRUE)
         echo "<p>Reminder insertion unsuccessful: " . $reminder . "<br></p>";
-      } else {
+      else {
+
         $_SESSION['reminder-toggle'] = 'on';
         echo '<script>window.location.href = "dashboard.php";</script>';
       }

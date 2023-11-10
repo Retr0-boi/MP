@@ -38,7 +38,6 @@
     </div><!-- EEEEEEEEEEEEEEEEE DIVVVVVVVVV IS FROM THE PHP INCLUDE  -->
     <?php include 'DashReminders.php'; ?>
   </div>
-  </div>
   <div class="container-third">
     <?php include 'DashBodyweight.php';?>
   </div>
