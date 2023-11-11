@@ -4,7 +4,7 @@ if (!isset($_SESSION['reminder-toggle'])) {
 }
 
 if (isset($_POST['reminder-edit'])) {
-  // Toggle the state when the button is clicked
+  // Toggle the state
   $_SESSION['reminder-toggle'] = ($_SESSION['reminder-toggle'] === 'on') ? 'off' : 'on';
 }
 ?>
@@ -59,7 +59,7 @@ if (isset($_POST['reminder-edit'])) {
     <?php
 
     if (isset($_POST['delete_reminders'])) {
-      $goal_id = $_POST['ip_reminder_id']; // Get the goal_id from the hidden input
+      $goal_id = $_POST['ip_reminder_id']; 
       $sql_delete = "DELETE FROM reminders WHERE reminder_id = '$reminder_id'";
       if (!$conn->query($sql_delete) === TRUE) {
         echo "Error: " . $sql . "<br>" . $conn->error;
@@ -71,7 +71,6 @@ if (isset($_POST['reminder-edit'])) {
   <?php else : ?>
     <form class="add-reminder" method="POST">
       <div id="newReminder">
-        <!-- New text box and button pairs will be added here -->
       </div>
       <div class="button-container">
         <div class="newReminderButton">
@@ -90,10 +89,8 @@ if (isset($_POST['reminder-edit'])) {
 
     <script>
       function addNewReminder() {
-        // Create a new div to contain the text box, dropdown, delete button, and "Add reminder" button
         var reminderDiv = document.createElement("div");
 
-        // Create new input field
         var newInputReminders = document.createElement("input");
         newInputReminders.type = "text";
         newInputReminders.name = "newReminder[]";
@@ -101,12 +98,10 @@ if (isset($_POST['reminder-edit'])) {
         newInputReminders.placeholder = "Enter a new reminder";
         newInputReminders.required = true;
 
-        // Create dropdown for reminder frequency
         var frequencyDropdown = document.createElement("select");
         frequencyDropdown.name = "reminderFrequency[]";
         frequencyDropdown.className = "freqReminder";
         frequencyDropdown.required = true;
-        // Options for the frequency dropdown
         var frequencyOptions = ["Daily", "Weekly", "Monthly"];
         var frequencyValues = ["daily", "weekly", "monthly"];
 
@@ -118,7 +113,6 @@ if (isset($_POST['reminder-edit'])) {
           frequencyDropdown.appendChild(option);
         }
 
-        // Create a delete button for the text box
         var deleteButton = document.createElement("button");
         deleteButton.type = "button";
         deleteButton.className = "square-button-delete-reminders";
@@ -127,27 +121,22 @@ if (isset($_POST['reminder-edit'])) {
         trashIcon.style.color = "#ff0000";
         deleteButton.appendChild(trashIcon);
         deleteButton.onclick = function() {
-          // Remove the entire div when the delete button is clicked
           reminderDiv.remove();
           checkSaveButtonVisibilityReminders();
         };
 
-        // Append the new elements to the div
         reminderDiv.appendChild(newInputReminders);
         reminderDiv.appendChild(frequencyDropdown);
         reminderDiv.appendChild(deleteButton);
 
-        // Append the div to the form
         var newReminderDiv = document.getElementById("newReminder");
         newReminderDiv.appendChild(reminderDiv);
 
-        // Show the "Add reminder" button when a form is added
         checkSaveButtonVisibilityReminders();
       }
 
 
       function checkSaveButtonVisibilityReminders() {
-        // Show the "Save Reminders" button when there's at least one form
         var submitButton = document.querySelector(".submitButton");
         var newReminderDiv = document.getElementById("newReminder");
         var forms = newReminderDiv.querySelectorAll("div");
