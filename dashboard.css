@@ -114,7 +114,7 @@ body {
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  /* width: 80vh; */
+  min-width: 80vh;
 }
 
 .section-header {
@@ -154,6 +154,7 @@ body {
 .square-button-complete-reminder,
 .square-button-delete-reminder,
 .square-button-bodyWeight,
+/* .square-button-bodyWeight-none, */
 .square-button-save-new-bodyWeight,
 .square-button-delete-bodyWeight,
 .square-button-new-bodyWeight,
@@ -171,7 +172,7 @@ body {
   text-decoration: none;
   background: transparent;
   border: transparent;
-  display: absolute;
+  display: inline-block;
   position: relative;
   /* gap: 10px; */
 }
@@ -246,6 +247,11 @@ body {
   position: relative;
   left: 165vh;
 }
+/* .square-button-bodyWeight-none {
+  position: relative;
+  bottom: 50px;
+  left:73vh;
+} */
 
 .square-button-delete-goals,
 .square-button-delete-reminders {

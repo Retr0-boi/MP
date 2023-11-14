@@ -1,3 +1,8 @@
+<div class="section-header">LOG WEIGHTS
+    <div class="icon">
+        <i class="fa-solid fa-cloud-arrow-up" style="color: #25a825;"></i>
+    </div>
+</div>
 <ul>
     <?php
     $check = "SELECT * FROM logged_weights WHERE UID='$SID' ORDER BY date DESC LIMIT 1";
@@ -31,25 +36,18 @@
             if ($IsAlreadySet === 0) {
                 $getvalues = "SELECT * FROM logged_weights WHERE ex_id='$ex_id' AND UID='$SID' AND date=CURDATE()";
                 $result_query = $conn->query($getvalues);
-                if($result_query->num_rows>0) {
+                if ($result_query->num_rows > 0) {
                     $result_weight = $result_query->fetch_assoc();
                     $logged_weight = $result_weight['weight'];
-                }
-                else {
-                    $IsAlreadySet=1;
+                } else {
+                    $IsAlreadySet = 1;
                 }
             }
     ?>
             <form class="DashLogWeights" method="post">
                 <li><?php echo $result_ex_name["ex_name"] ?>
                     <input type="text" name="exercise_<?php echo $ex_id; ?>" hidden>
-                    <input class="log_weights" type="number" name="weight_<?php echo $ex_id; ?>" 
-                    <?php if ($IsAlreadySet === 0) {?>
-                         value="<?php echo $logged_weight; ?>" 
-                    <?php } else { ?>
-                         placeholder="0" 
-                    <?php } ?>
-                    >
+                    <input class="log_weights" type="number" name="weight_<?php echo $ex_id; ?>" <?php if ($IsAlreadySet === 0) { ?> value="<?php echo $logged_weight; ?>" <?php } else { ?> placeholder="0" <?php } ?>>
                 </li>
 
             <?php }
@@ -84,21 +82,21 @@
                         $conn->query($update_query);
                     }
                 }
-                echo "<script>window.location='dashboard.php'</script>";  
+                echo "<script>window.location='dashboard.php'</script>";
             }
             ?>
             <div class="update-submit-logweights">
-            <?php if ($IsAlreadySet == 1) : ?>
-                <button name="submit-weights" class="bottom-right-button-log">
-                    <i class="fa-regular fa-floppy-disk" style="color: #25a825;"></i>
-                </button>
-            <?php else : ?>
-                <button name="update-weights" class="bottom-right-button-log">
-                <i class="fa-solid fa-pen-to-square" style="color: #25a825;"></i>
-                </button>
-            <?php endif; ?>
+                <?php if ($IsAlreadySet == 1) : ?>
+                    <button name="submit-weights" class="bottom-right-button-log">
+                        <i class="fa-regular fa-floppy-disk" style="color: #25a825;"></i>
+                    </button>
+                <?php else : ?>
+                    <button name="update-weights" class="bottom-right-button-log">
+                        <i class="fa-solid fa-pen-to-square" style="color: #25a825;"></i>
+                    </button>
+                <?php endif; ?>
             </div>
-            
+
             </form>
         <?php
     } else { ?>

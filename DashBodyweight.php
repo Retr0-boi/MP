@@ -19,7 +19,7 @@ if (isset($_POST['bodyweight-edit'])) {
       </button>
     </form>
   </div>
-    <?php
+  <?php
   if ($_SESSION['bodyweight-toggle'] === 'on') :
   ?>
     <div id="chartContainer">
@@ -48,15 +48,15 @@ if (isset($_POST['bodyweight-edit'])) {
       ];
       $result->close(); // Close the result set
       ?>
-      
+
       <?php
       if (count($lineData2['labels']) > 0 && count($lineData2['datasets'][0]['data']) > 0) :
-  //       echo "lineData2 Contents:";
-  // echo "<pre>";
-  // var_dump($lineData2);
-  // echo "</pre>";
-  ?>
-      <canvas id="lineChart2"></canvas>
+        //       echo "lineData2 Contents:";
+        // echo "<pre>";
+        // var_dump($lineData2);
+        // echo "</pre>";
+      ?>
+        <canvas id="lineChart2"></canvas>
         <script>
           // Sample data for Line Chart 2
           var lineData2 = <?php echo json_encode($lineData2); ?>;
@@ -105,11 +105,20 @@ if (isset($_POST['bodyweight-edit'])) {
           }
         </script>
       <?php else : ?>
+
+
+        <!-- <form class="bodyWeight-form" method="POST">
+          <button type="submit" class="square-button-bodyWeight-none" name="bodyweight-edit">
+            <i class="fa-solid fa-pen-to-square" style="color: #25a825;"></i>
+          </button>
+        </form> -->
+
         <ul>
           <li style='list-style-type: none;'>Log weight to see the analytics.</li>
         </ul>
+        </form>
       <?php endif; ?>
-  </div>
+    </div>
   <?php else : ?>
 
     <form class="add-bodyweight" method="POST">
@@ -120,30 +129,30 @@ if (isset($_POST['bodyweight-edit'])) {
         <div class="newBodyweightButton">
           <input type="numbers" class="newBodyweight" placeholder="Enter Bodyweight (KG)" name="bdweight" required>
         </div>
-          <!-- <button class="square-button-delete-bodyWeight" > -->
-          <!-- <i class="fa-solid fa-trash" style="color: #ff0000;"></i> -->
-          <!-- </button> -->
-        
-        <div class="submitButton" >
+        <!-- <button class="square-button-delete-bodyWeight" > -->
+        <!-- <i class="fa-solid fa-trash" style="color: #ff0000;"></i> -->
+        <!-- </button> -->
+
+        <div class="submitButton">
           <button class="square-button-save-new-bodyWeight" type="submit" name="add_bodyweight">
             <i class="fa-regular fa-floppy-disk" style="color: #25a825;"></i>
           </button>
         </div>
-        </div>
       </div>
-    </form>
-  <?php endif; ?>
+</div>
+</form>
+<?php endif; ?>
 </div>
 <?php
-if(isset($_POST['add_bodyweight'])){
-    $bodyweight = $_POST['bdweight'];
-    $sql="INSERT INTO bodyweight (uid,weight,date) VALUES('$SID','$bodyweight',CURDATE())";
-    if (!$conn->query($sql) === TRUE)
-        echo "<p>Bodyweight insertion unsuccessful: " . $bodyweight . "<br></p>";
-      else {
+if (isset($_POST['add_bodyweight'])) {
+  $bodyweight = $_POST['bdweight'];
+  $sql = "INSERT INTO bodyweight (uid,weight,date) VALUES('$SID','$bodyweight',CURDATE())";
+  if (!$conn->query($sql) === TRUE)
+    echo "<p>Bodyweight insertion unsuccessful: " . $bodyweight . "<br></p>";
+  else {
 
-        $_SESSION['bodyweight-toggle'] = 'on';
-        echo '<script>window.location.href = "dashboard.php";</script>';
-      }
-} 
+    $_SESSION['bodyweight-toggle'] = 'on';
+    echo '<script>window.location.href = "dashboard.php";</script>';
+  }
+}
 ?>

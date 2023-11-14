@@ -25,22 +25,21 @@
         </ul>
       </div>
       <div class="section top">
-        <div class="section-header">LOG WEIGHTS
-          <div class="icon">
-            <i class="fa-solid fa-cloud-arrow-up" style="color: #25a825;"></i>
-          </div>
-        </div>
-      <?php include 'DashLogWeights.php';?>
-      </div>  
+        
+        <?php include 'DashLogWeights.php'; ?>
+      </div>
     </div>
     <div class="container-second">
       <?php include 'DashGoals.php'; ?>
     </div><!-- EEEEEEEEEEEEEEEEE DIVVVVVVVVV IS FROM THE PHP INCLUDE  -->
+
     <?php include 'DashReminders.php'; ?>
   </div>
+
   <div class="container-third">
-    <?php include 'DashBodyweight.php';?>
+    <?php include 'DashBodyweight.php'; ?>
   </div>
   </div>
 </body>
+
 </html>

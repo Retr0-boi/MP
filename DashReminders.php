@@ -16,7 +16,8 @@ if (isset($_POST['reminder-edit'])) {
     <form class="reminders-form" method="POST">
       <button type="submit" class="square-button-reminders" name="reminder-edit">
         <i class="fa-solid fa-pen-to-square" style="color: #25a825;"></i>
-        </a></button>
+        </a>
+      </button>
     </form>
   </div>
   <?php
@@ -85,7 +86,7 @@ if (isset($_POST['reminder-edit'])) {
         </div>
       </div>
     </form>
-</div>
+
 
     <script>
       function addNewReminder() {
@@ -147,6 +148,7 @@ if (isset($_POST['reminder-edit'])) {
         }
       }
     </script>
+    </div>
   <?php endif; ?>
   <?php
   if (isset($_POST['add_reminder'])) {
@@ -168,3 +170,4 @@ if (isset($_POST['reminder-edit'])) {
     }
   }
   ?>
+ 
